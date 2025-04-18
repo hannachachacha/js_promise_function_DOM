@@ -1,19 +1,13 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  const myPromise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     element.addEventListener(eventName, (e) => {
       const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
 
       resolve(message);
     });
   });
-
-  myPromise.then((message) => {
-    printMessage(message);
-  });
-
-  return myPromise;
 }
 
 const printMessage = (message) => {
